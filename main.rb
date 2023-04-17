@@ -54,6 +54,24 @@ class LinkedList
     end
     node
   end
+
+  # Remove last element from list & return it
+  def pop
+    return nil if head.nil?
+
+    prev = nil
+    cur = @head
+
+    until cur.next_node.nil?
+      prev = cur
+      cur = cur.next_node
+    end
+
+    prev.next_node = nil
+    @tail = prev
+
+    cur
+  end
 end
 
 # Node Class
@@ -68,11 +86,14 @@ end
 
 list = LinkedList.new
 
-list.append(Node.new(1))
 list.append(Node.new(2))
+list.append(Node.new(3))
+list.prepend(Node.new(1))
 list.prepend(Node.new(0))
 
-# p list.size
-# p list.head
-# p list.tail
-p list.at(3)
+puts 'List before pop'
+p list
+puts 'Pop'
+p list.pop
+puts 'List after pop'
+p list
