@@ -101,6 +101,21 @@ class LinkedList
 
     result
   end
+
+  def to_s
+    result = ''
+
+    node = @head
+
+    until node.nil?
+      result += "( #{node.value} ) -> "
+      node = node.next_node
+    end
+
+    result += 'nil'
+
+    result
+  end
 end
 
 # Node Class
@@ -120,4 +135,4 @@ list.append(Node.new(3))
 list.prepend(Node.new(1))
 list.prepend(Node.new(0))
 
-p list.find(4)
+puts list
