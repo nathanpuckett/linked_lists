@@ -72,6 +72,19 @@ class LinkedList
 
     cur
   end
+
+  def contains?(value)
+    result = false
+
+    node = @head
+
+    until node.nil?
+      result = true if node.value == value
+      node = node.next_node
+    end
+
+    result
+  end
 end
 
 # Node Class
@@ -91,9 +104,4 @@ list.append(Node.new(3))
 list.prepend(Node.new(1))
 list.prepend(Node.new(0))
 
-puts 'List before pop'
-p list
-puts 'Pop'
-p list.pop
-puts 'List after pop'
-p list
+p list.contains?(4)
