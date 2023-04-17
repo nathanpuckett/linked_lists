@@ -42,6 +42,18 @@ class LinkedList
     end
     total
   end
+
+  def at(index)
+    return 'Index does not exist' if self.size <= index
+
+    count = 0
+    node = @head
+    until count == index
+      count += 1
+      node = node.next_node
+    end
+    node
+  end
 end
 
 # Node Class
@@ -60,6 +72,7 @@ list.append(Node.new(1))
 list.append(Node.new(2))
 list.prepend(Node.new(0))
 
-p list.size
-p list.head
-p list.tail
+# p list.size
+# p list.head
+# p list.tail
+p list.at(3)
