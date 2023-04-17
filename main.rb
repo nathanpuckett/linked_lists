@@ -85,6 +85,22 @@ class LinkedList
 
     result
   end
+
+  # Returns index of node containing value, or nil if not found
+  def find(value)
+    node = @head
+    result = nil
+    index = 0
+
+    until node.nil?
+      result = index if node.value == value
+
+      node = node.next_node
+      index += 1
+    end
+
+    result
+  end
 end
 
 # Node Class
@@ -104,4 +120,4 @@ list.append(Node.new(3))
 list.prepend(Node.new(1))
 list.prepend(Node.new(0))
 
-p list.contains?(4)
+p list.find(4)
