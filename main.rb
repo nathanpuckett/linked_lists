@@ -126,6 +126,10 @@ class Node
     @next_node = nil
     @value = value
   end
+
+  def to_s
+    "( #{@value} )"
+  end
 end
 
 list = LinkedList.new
@@ -135,4 +139,10 @@ list.append(Node.new(3))
 list.prepend(Node.new(1))
 list.prepend(Node.new(0))
 
-puts list
+puts "List as a string: #{list}"
+puts "List size: #{list.size}"
+puts "Node at index = 2: #{list.at(2)}"
+puts "Pop: #{list.pop}"
+puts "Contains ( 2 )?: #{list.contains?(2)}"
+puts "Contains ( 3 )?: #{list.contains?(3)}"
+puts "Find ( 1 ): #{list.find(1)}"
